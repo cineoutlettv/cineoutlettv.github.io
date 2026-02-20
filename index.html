@@ -25,6 +25,7 @@
             scroll-behavior: smooth;
         }
 
+        /* Navbar */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -41,8 +42,9 @@
         .logo-area { display: flex; align-items: center; gap: 10px; }
         .logo-area img { height: 45px; border-radius: 50%; border: 2px solid var(--primary); }
 
+        /* Hero */
         .hero {
-            padding: 180px 10% 80px;
+            padding: 180px 10% 60px;
             text-align: center;
             background: radial-gradient(circle at 50% -20%, #2a2200 0%, #0a0c10 70%);
         }
@@ -50,8 +52,38 @@
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; line-height: 1.1; margin: 0; }
         .hero span { color: var(--primary); }
 
-        /* Planos Estilizados */
-        .pricing { padding: 60px 10%; text-align: center; }
+        /* Seção de Dispositivos */
+        .devices-bar {
+            padding: 40px 10%;
+            background: rgba(255, 255, 255, 0.02);
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .devices-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .device-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .device-item:hover { opacity: 1; color: var(--primary); transform: translateY(-5px); }
+        .device-item i { font-size: 2rem; }
+        .device-item span { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Planos */
+        .pricing { padding: 80px 10%; text-align: center; }
         .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
 
         .price-card {
@@ -67,8 +99,8 @@
         .price-card:hover { transform: translateY(-10px); border-color: var(--primary); }
         .price-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(248, 196, 0, 0.2); }
 
-        .price-card ul { list-style: none; padding: 0; text-align: left; margin: 20px 0; }
-        .price-card li { margin-bottom: 12px; font-size: 0.9rem; color: #ccc; }
+        .price-card ul { list-style: none; padding: 0; text-align: left; margin: 25px 0; }
+        .price-card li { margin-bottom: 12px; font-size: 0.9rem; color: #ccc; display: flex; align-items: center; }
         .price-card li i { color: var(--primary); margin-right: 10px; }
 
         .btn-main {
@@ -85,23 +117,19 @@
 
         .btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(248, 196, 0, 0.3); }
 
-        /* Facebook Invite */
-        .social-invite { padding: 40px 10%; text-align: center; }
+        /* Facebook */
+        .social-invite { padding: 60px 10%; text-align: center; }
         .fb-card {
             display: inline-flex;
-            align-items: center;
-            gap: 15px;
+            align-items: center; gap: 15px;
             background: rgba(24, 119, 242, 0.1);
             border: 1px solid var(--fb-blue);
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: #fff;
-            transition: 0.3s;
+            padding: 15px 30px; border-radius: 50px;
+            text-decoration: none; color: #fff; transition: 0.3s;
         }
         .fb-card:hover { background: var(--fb-blue); }
 
-        /* Rodapé Ultra Visível */
+        /* Rodapé */
         .footer-final {
             padding: 80px 10% 120px;
             text-align: center;
@@ -109,12 +137,7 @@
             background-color: #000;
         }
 
-        .footer-final p {
-            color: var(--primary) !important;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0;
-        }
+        .footer-final p { color: var(--primary) !important; font-size: 1.1rem; font-weight: 600; margin: 0; }
 
         .wa-btn {
             position: fixed;
@@ -131,7 +154,10 @@
 
         @media (max-width: 768px) {
             .hero { padding-top: 130px; }
+            .pricing-grid { gap: 40px; }
             .price-card { width: 100%; }
+            .devices-container { gap: 20px; }
+            .device-item i { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -146,13 +172,39 @@
 
     <section class="hero">
         <h1>O Futuro do <br><span>Streaming 4K</span></h1>
-        <p style="color: #888; margin-top: 15px;">Estabilidade total e suporte especializado.</p>
-        <a href="#planos" class="btn-main" style="width: auto;">VER PLANOS ATUALIZADOS</a>
+        <p style="color: #888; margin-top: 15px;">Assista em 2 telas simultâneas com estabilidade total.</p>
+        <a href="#planos" class="btn-main" style="width: auto; margin-top: 30px;">VER PLANOS E PREÇOS</a>
     </section>
+
+    <div class="devices-bar">
+        <p style="font-size: 0.8rem; color: #555; margin-bottom: 25px; font-weight: 800; letter-spacing: 2px;">DISPONÍVEL PARA</p>
+        <div class="devices-container">
+            <div class="device-item">
+                <i class="fas fa-tv"></i>
+                <span>Smart TV</span>
+            </div>
+            <div class="device-item">
+                <i class="fab fa-android"></i>
+                <span>TV Box</span>
+            </div>
+            <div class="device-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Smartphone</span>
+            </div>
+            <div class="device-item">
+                <i class="fas fa-laptop"></i>
+                <span>PC / Web</span>
+            </div>
+            <div class="device-item">
+                <i class="fas fa-gamepad"></i>
+                <span>Consoles</span>
+            </div>
+        </div>
+    </div>
 
     <section id="planos" class="pricing">
         <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Nossos Planos</h2>
-        <p style="color: #888;">Liberação imediata após o pagamento</p>
+        <p style="color: #888;">Liberação imediata com 2 telas inclusas</p>
 
         <div class="pricing-grid">
             
@@ -165,6 +217,7 @@
                     <li><i class="fas fa-check"></i> +100.000 Conteúdos</li>
                     <li><i class="fas fa-check"></i> Canais SD/HD/FHD</li>
                     <li><i class="fas fa-check"></i> Filmes e Séries</li>
+                    <li><i class="fas fa-check"></i> Sem fidelidade</li>
                 </ul>
                 <a href="https://wa.me/5569984370902?text=Olá! Quero assinar o Plano Bronze (R$ 40,00 - 2 Telas)" class="btn-main">ASSINAR AGORA</a>
             </div>
@@ -178,7 +231,8 @@
                 <ul>
                     <li><i class="fas fa-star"></i> <b>Qualidade 4K Ultra HD</b></li>
                     <li><i class="fas fa-check"></i> Suporte Prioritário</li>
-                    <li><i class="fas fa-check"></i> Conteúdos Adultos (Opcional)</li>
+                    <li><i class="fas fa-check"></i> Grade Completa + Adultos</li>
+                    <li><i class="fas fa-check"></i> Servidor VIP (Sem Travas)</li>
                 </ul>
                 <a href="https://wa.me/5569984370902?text=Olá! Quero assinar o Plano Premium (R$ 50,00 - 2 Telas)" class="btn-main">ASSINAR AGORA</a>
             </div>
