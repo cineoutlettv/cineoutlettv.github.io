@@ -3,178 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Outlet TV | Suporte e Streaming 4K</title>
+    <title>Cine Outlet TV | Tech Streaming</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #0f1115;
-            --secondary-bg: #1a1d23;
-            --accent-yellow: #f8c400;
-            --whatsapp-green: #25d366;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
+            --primary: #f8c400;
+            --bg-dark: #0a0c10;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            margin: 0; font-family: 'Inter', sans-serif;
-            background-color: var(--primary-bg); color: var(--text-main);
-            line-height: 1.6; scroll-behavior: smooth;
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Header */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: rgba(0,0,0,0.9);
-            position: fixed; width: 90%; z-index: 1000; border-bottom: 1px solid #333;
+        /* Navbar Moderna */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            height: 80px;
+            background: rgba(10, 12, 16, 0.7);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 9999;
+            border-bottom: 1px solid var(--glass-border);
         }
-        .logo-box { display: flex; align-items: center; gap: 12px; }
-        .logo-img { height: 50px; border-radius: 50%; }
 
-        /* Hero Section */
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-area img { height: 45px; border-radius: 50%; border: 2px solid var(--primary); }
+
+        /* Hero com Animação */
         .hero {
-            padding: 160px 5% 80px; text-align: center;
-            background: radial-gradient(circle at center, #1e2229 0%, #0f1115 100%);
-        }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--accent-yellow); }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
-
-        /* Seção Técnica (Inspirada na LTI) */
-        .troubleshoot { padding: 60px 5%; background: var(--secondary-bg); }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .grid-tech {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        .tech-card {
-            background: var(--primary-bg); padding: 25px; border-radius: 12px;
-            border-left: 4px solid var(--accent-yellow);
-        }
-        .tech-card h3 { color: var(--accent-yellow); margin-top: 0; }
-        .tech-card p { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* Planos */
-        .plans { padding: 80px 5%; text-align: center; }
-        .plan-grid {
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px;
-        }
-        .plan-box {
-            background: var(--secondary-bg); padding: 40px; border-radius: 20px;
-            width: 300px; transition: 0.3s; border: 1px solid #333;
-        }
-        .plan-box:hover { border-color: var(--accent-yellow); transform: translateY(-50px); }
-        .price { font-size: 3rem; font-weight: bold; margin: 20px 0; }
-        .btn-cta {
-            display: block; background: var(--accent-yellow); color: #000;
-            padding: 15px; border-radius: 8px; text-decoration: none; font-weight: bold;
+            padding: 180px 10% 100px;
+            text-align: center;
+            background: radial-gradient(circle at 50% -20%, #2a2200 0%, #0a0c10 70%);
         }
 
-        /* FAQ */
-        .faq { padding: 60px 5%; max-width: 800px; margin: 0 auto; }
-        .faq-item { margin-bottom: 20px; background: #1e2229; padding: 20px; border-radius: 8px; }
-        .faq-item h4 { margin: 0 0 10px; color: var(--accent-yellow); }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1; margin: 0; }
+        .hero span { color: var(--primary); }
 
-        /* WhatsApp */
-        .wa-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background: var(--whatsapp-green); color: #fff;
-            width: 65px; height: 65px; border-radius: 50%;
+        /* Grade de Soluções Técnicas (Base LTI) */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 50px 10%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover { background: rgba(248, 196, 0, 0.05); border-color: var(--primary); transform: translateY(-10px); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; display: block; }
+
+        /* Planos Estilo Glassmorphism */
+        .pricing { padding: 100px 10%; text-align: center; }
+        .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+
+        .price-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 40px;
+            width: 300px;
+            position: relative;
+        }
+
+        .price-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(248, 196, 0, 0.2); }
+
+        .btn-main {
+            display: inline-block;
+            background: var(--primary);
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(248, 196, 0, 0.3); }
+
+        /* Botão WhatsApp Pulsante */
+        .wa-btn {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            background: #25d366;
+            width: 65px; height: 65px;
+            border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 35px; text-decoration: none; box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-            z-index: 2000; animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            font-size: 30px; color: #fff;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            animation: bounce 2s infinite;
         }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid #333; color: var(--text-muted); }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
 
+        /* Rodapé */
+        footer { padding: 50px 10%; text-align: center; color: #555; border-top: 1px solid var(--glass-border); }
+
+        /* Responsividade Extrema */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            header { width: 90%; }
+            nav { justify-content: center; }
+            .hero { padding-top: 140px; }
+            .hero h1 { font-size: 2.5rem; }
+            .price-card { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-box">
-        <img src="logo.jpg" alt="Logo" class="logo-img">
-        <span style="font-weight:bold; letter-spacing:1px;">CINE OUTLET TV</span>
-    </div>
-    <a href="https://wa.me/5569984370902" class="btn-cta" style="padding: 8px 15px;">Teste Grátis</a>
-</header>
-
-<section class="hero">
-    <h1>Canais Sem Travamentos</h1>
-    <p>Tecnologia Anti-Buffering e servidores de alta performance para você não perder nenhum lance.</p>
-    <a href="#planos" class="btn-cta" style="display:inline-block; width:200px;">Ver Planos</a>
-</section>
-
-<section class="troubleshoot">
-    <div class="section-title">
-        <h2>Diagnóstico e Performance</h2>
-        <p>Entenda por que a Cine Outlet TV é mais estável que a concorrência.</p>
-    </div>
-    <div class="grid-tech">
-        <div class="tech-card">
-            <h3><i class="fas fa-wifi"></i> Instabilidade no Wi-Fi</h3>
-            <p>O Jitter alto causa o "carregamento". Recomendamos sempre conexão via cabo para Smart TVs e TV Boxes.</p>
+    <nav>
+        <div class="logo-area">
+            <img src="logo.jpg" alt="Logo Cine Outlet">
+            <span style="font-weight: 800; letter-spacing: -1px; font-size: 1.2rem;">CINE OUTLET TV</span>
         </div>
-        <div class="tech-card">
-            <h3><i class="fas fa-shield-alt"></i> Traffic Shaping</h3>
-            <p>Alguns provedores limitam o sinal de vídeo. Nossa tecnologia utiliza tunelamento para contornar bloqueios de operadoras.</p>
-        </div>
-        <div class="tech-card">
-            <h3><i class="fas fa-server"></i> DNS Inteligente</h3>
-            <p>Otimizamos as rotas de conexão. Recomendamos o uso dos DNS Cloudflare (1.1.1.1) para menor latência.</p>
-        </div>
-    </div>
-</section>
+    </nav>
 
-<section id="planos" class="plans">
-    <h2>Escolha seu Plano</h2>
-    <div class="plan-grid">
-        <div class="plan-box">
-            <h3>Mensal</h3>
-            <div class="price">R$ 29<small>,90</small></div>
-            <p>Acesso Completo<br>Suporte via Zap<br>1 Tela</p>
-            <a href="https://wa.me/5569984370902?text=Quero+o+Plano+Mensal" class="btn-cta">Assinar</a>
+    <section class="hero">
+        <h1>O Futuro do <br><span>Streaming 4K</span></h1>
+        <p style="color: #888; margin-top: 20px;">Infraestrutura robusta, latência zero e suporte especializado.</p>
+        <a href="#planos" class="btn-main">CONHECER PLANOS</a>
+    </section>
+
+    <section class="tech-grid">
+        <div class="card">
+            <i class="fas fa-microchip"></i>
+            <h3>Tecnologia Anti-Buffering</h3>
+            <p>Algoritmos avançados que otimizam o carregamento mesmo em conexões instáveis.</p>
         </div>
-        <div class="plan-box" style="border-color: var(--accent-yellow);">
-            <div style="background:var(--accent-yellow); color:#000; font-size:0.7rem; font-weight:bold; border-radius:10px; padding:2px 0; margin-bottom:10px;">MAIS VENDIDO</div>
-            <h3>Trimestral</h3>
-            <div class="price">R$ 79<small>,90</small></div>
-            <p><b>Bônus de Fidelidade</b><br>Prioridade no Servidor<br>1 Tela</p>
-            <a href="https://wa.me/5569984370902?text=Quero+o+Plano+Trimestral" class="btn-cta">Assinar</a>
+        <div class="card">
+            <i class="fas fa-shield-virus"></i>
+            <h3>Zero Traffic Shaping</h3>
+            <p>Servidores camuflados que impedem o bloqueio ou redução de velocidade da sua operadora.</p>
         </div>
-    </div>
-</section>
+        <div class="card">
+            <i class="fas fa-bolt"></i>
+            <h3>Latência Reduzida</h3>
+            <p>Rotas de fibra ótica diretas para os principais servidores de conteúdo do mundo.</p>
+        </div>
+    </section>
 
-<section class="faq">
-    <h2 style="text-align:center">Perguntas Frequentes</h2>
-    <div class="faq-item">
-        <h4>Preciso de antena para usar?</h4>
-        <p>Não. Todo o sinal é transmitido via internet. Basta ter uma conexão estável acima de 10mbps.</p>
-    </div>
-    <div class="faq-item">
-        <h4>Quais aplicativos vocês recomendam?</h4>
-        <p>Trabalhamos com os melhores: XCIPTV, Smart UP, IPTV Smarters e apps próprios para Android.</p>
-    </div>
-    <div class="faq-item">
-        <h4>O sinal trava em dias de jogos?</h4>
-        <p>Nossa infraestrutura possui balanceamento de carga, garantindo estabilidade mesmo em horários de pico.</p>
-    </div>
-</section>
+    <section id="planos" class="pricing">
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Nossas Ofertas</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Plano Bronze</h3>
+                <div style="font-size: 3rem; font-weight: 800;">R$ 29<span style="font-size: 1rem;">,90</span></div>
+                <p style="color: #888;">Mensal - 1 Tela</p>
+                <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 20px 0;">
+                <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color: var(--primary); font-size: 0.8rem;"></i> Todos os Canais</li>
+                    <li><i class="fas fa-check" style="color: var(--primary); font-size: 0.8rem;"></i> Filmes & Séries</li>
+                </ul>
+                <a href="https://wa.me/5569984370902?text=Quero+o+Plano+Bronze" class="btn-main" style="width: 80%;">ASSINAR</a>
+            </div>
 
-<a href="https://wa.me/5569984370902" class="wa-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
+            <div class="price-card featured">
+                <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #000; padding: 4px 15px; border-radius: 20px; font-weight: bold; font-size: 0.7rem;">RECOMENDADO</span>
+                <h3>Plano Gold</h3>
+                <div style="font-size: 3rem; font-weight: 800;">R$ 79<span style="font-size: 1rem;">,90</span></div>
+                <p style="color: #888;">Trimestral - 1 Tela</p>
+                <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 20px 0;">
+                <ul style="list-style: none; padding: 0; text-align: left; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color: var(--primary); font-size: 0.8rem;"></i> Todos os Benefícios</li>
+                    <li><i class="fas fa-check" style="color: var(--primary); font-size: 0.8rem;"></i> Suporte Prioritário</li>
+                    <li><i class="fas fa-check" style="color: var(--primary); font-size: 0.8rem;"></i> Economia de 12%</li>
+                </ul>
+                <a href="https://wa.me/5569984370902?text=Quero+o+Plano+Gold" class="btn-main" style="width: 80%;">ASSINAR</a>
+            </div>
+        </div>
+    </section>
 
-<footer>
-    <p>&copy; 2026 Cine Outlet TV - Todos os direitos reservados.</p>
-</footer>
+    <a href="https://wa.me/5569984370902" class="wa-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>© 2026 Cine Outlet TV. Engenharia de Streaming de Alta Disponibilidade.</p>
+    </footer>
 
 </body>
 </html>
