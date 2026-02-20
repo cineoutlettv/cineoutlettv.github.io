@@ -56,24 +56,30 @@
         .device-item { display: flex; flex-direction: column; align-items: center; gap: 5px; color: #555; font-size: 0.65rem; font-weight: 700; }
         .device-item i { font-size: 1.5rem; margin-bottom: 5px; }
 
-        /* SEÇÃO DE APLICATIVOS */
-        .apps-section { padding: 60px 10%; text-align: center; background: #0d0f14; }
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
-        .app-card {
-            background: rgba(255,255,255,0.03);
+        /* SEÇÃO DE CATEGORIAS (SUBSTITUINDO LOGOS) */
+        .content-grid { padding: 60px 10%; text-align: center; }
+        .cat-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px; }
+        .cat-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 100%);
             border: 1px solid var(--glass-border);
-            padding: 20px;
+            padding: 30px 15px;
             border-radius: 20px;
             transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
         }
-        .app-card:hover { border-color: var(--primary); background: rgba(248, 196, 0, 0.05); transform: scale(1.05); }
+        .cat-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .cat-card h4 { font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* SEÇÃO DE APLICATIVOS */
+        .apps-section { padding: 60px 10%; text-align: center; background: #0d0f14; border-top: 1px solid var(--glass-border); }
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+        .app-card {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+            padding: 20px; border-radius: 20px; transition: 0.3s;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+        }
+        .app-card:hover { border-color: var(--primary); background: rgba(248, 196, 0, 0.05); }
         .app-card i { font-size: 1.8rem; color: var(--primary); }
-        .app-card span { font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; color: #fff; }
-        .app-card small { color: #666; font-size: 0.7rem; text-transform: uppercase; }
+        .app-card span { font-weight: 800; font-size: 0.9rem; }
 
         .pricing { padding: 60px 10%; text-align: center; }
         .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 40px; }
@@ -82,7 +88,6 @@
             border: 1px solid var(--glass-border); border-radius: 28px;
             padding: 35px 25px; width: 300px; position: relative; transition: 0.4s;
         }
-        .price-card:hover { transform: translateY(-8px); border-color: var(--primary); }
         .price-card.featured { border: 2px solid var(--primary); box-shadow: 0 0 25px rgba(248, 196, 0, 0.15); }
         .price-card ul { list-style: none; text-align: left; margin: 20px 0; }
         .price-card li { margin-bottom: 10px; font-size: 0.85rem; color: #bbb; display: flex; align-items: center; gap: 8px; }
@@ -96,20 +101,7 @@
 
         .testimonials { padding: 60px 10%; background: rgba(255,255,255,0.01); text-align: center; }
         .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-        .testi-card {
-            background: var(--card-bg); padding: 25px; border-radius: 20px;
-            border: 1px solid var(--glass-border); text-align: left;
-        }
-        .stars { color: var(--primary); font-size: 0.8rem; margin-bottom: 10px; }
-        .testi-card p { font-style: italic; color: #ccc; font-size: 0.9rem; margin-bottom: 15px; }
-        .testi-card strong { font-size: 0.9rem; color: var(--primary); }
-
-        .social-invite { padding: 40px 10%; text-align: center; }
-        .fb-card {
-            display: inline-flex; align-items: center; gap: 12px;
-            background: rgba(24, 119, 242, 0.1); border: 1px solid var(--fb-blue);
-            padding: 12px 25px; border-radius: 50px; text-decoration: none; color: #fff;
-        }
+        .testi-card { background: var(--card-bg); padding: 25px; border-radius: 20px; border: 1px solid var(--glass-border); text-align: left; }
 
         .footer-final {
             padding: 60px 10% 110px; text-align: center;
@@ -141,7 +133,7 @@
 
     <section class="hero">
         <h1>O Futuro do <br><span>Streaming 4K</span></h1>
-        <p>Qualidade máxima em 2 telas simultâneas.</p>
+        <p>A maior grade de conteúdos em 2 telas simultâneas.</p>
         <a href="#planos" class="btn-main" style="width: auto;">ASSINAR AGORA</a>
     </section>
 
@@ -154,29 +146,50 @@
         </div>
     </div>
 
+    <section class="content-grid">
+        <h2 style="font-size: 1.8rem;">O que você vai assistir?</h2>
+        <div class="cat-container">
+            <div class="cat-card">
+                <i class="fas fa-trophy"></i>
+                <h4>Esportes</h4>
+            </div>
+            <div class="cat-card">
+                <i class="fas fa-film"></i>
+                <h4>Cinema</h4>
+            </div>
+            <div class="cat-card">
+                <i class="fas fa-tv"></i>
+                <h4>Séries</h4>
+            </div>
+            <div class="cat-card">
+                <i class="fas fa-child"></i>
+                <h4>Infantil</h4>
+            </div>
+            <div class="cat-card">
+                <i class="fas fa-globe"></i>
+                <h4>Documentários</h4>
+            </div>
+        </div>
+    </section>
+
     <section class="apps-section">
-        <h2 style="font-size: 1.8rem;">Aplicativos Recomendados</h2>
-        <p style="color: #666; font-size: 0.9rem; margin-top: 5px;">Utilizamos as melhores interfaces do mercado</p>
+        <h2 style="font-size: 1.5rem;">Plataformas de Acesso</h2>
         <div class="apps-grid">
             <div class="app-card">
                 <i class="fas fa-play-circle"></i>
                 <span>IBO REVENDA</span>
-                <small>Premium Interface</small>
             </div>
             <div class="app-card">
                 <i class="fas fa-tv"></i>
                 <span>VU REVENDA</span>
-                <small>Ultra Fast</small>
             </div>
             <div class="app-card">
                 <i class="fas fa-layer-group"></i>
                 <span>SMARTONE</span>
-                <small>Smart TV Official</small>
             </div>
             <div class="app-card">
                 <i class="fas fa-rocket"></i>
                 <span>IBO PLAYER</span>
-                <small>Top Performance</small>
             </div>
         </div>
     </section>
@@ -214,23 +227,14 @@
         <h2 style="font-size: 2rem; margin-bottom: 10px;">Quem usa, aprova!</h2>
         <div class="testi-grid">
             <div class="testi-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 <p>"Roda liso na minha TV Box e no celular ao mesmo tempo. As 2 telas facilitam muito aqui em casa."</p>
                 <strong>Ricardo S.</strong>
             </div>
             <div class="testi-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 <p>"Melhor suporte que já tive. Me ajudaram a configurar tudo em minutos. Qualidade 4K real!"</p>
                 <strong>Mariana L.</strong>
             </div>
         </div>
-    </section>
-
-    <section class="social-invite">
-        <a href="https://www.facebook.com/CineOutleTv" target="_blank" class="fb-card">
-            <i class="fab fa-facebook"></i>
-            <span>Siga-nos no Facebook</span>
-        </a>
     </section>
 
     <div class="footer-final">
