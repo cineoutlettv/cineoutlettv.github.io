@@ -3,134 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Outlet TV | Seu Universo de Streaming</title>
+    <title>Cine Outlet TV | Suporte e Streaming 4K</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-bg: #1a1d23;
-            --secondary-bg: #242830;
+            --primary-bg: #0f1115;
+            --secondary-bg: #1a1d23;
             --accent-yellow: #f8c400;
-            --text-white: #ffffff;
-            --text-gray: #b1b1b1;
             --whatsapp-green: #25d366;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--primary-bg);
-            color: var(--text-white);
-            scroll-behavior: smooth;
+            margin: 0; font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg); color: var(--text-main);
+            line-height: 1.6; scroll-behavior: smooth;
         }
 
+        /* Header */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 5%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 90%;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(0,0,0,0.9);
+            position: fixed; width: 90%; z-index: 1000; border-bottom: 1px solid #333;
         }
+        .logo-box { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 50px; border-radius: 50%; }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-img {
-            height: 60px; /* Ajuste o tamanho da logo aqui */
-            width: auto;
-            border-radius: 50%;
-        }
-
-        .btn-trial {
-            background-color: var(--accent-yellow);
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
+        /* Hero Section */
         .hero {
-            padding: 180px 5% 100px;
-            text-align: center;
-            background: linear-gradient(rgba(26, 29, 35, 0.85), rgba(26, 29, 35, 1)), url('https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            padding: 160px 5% 80px; text-align: center;
+            background: radial-gradient(circle at center, #1e2229 0%, #0f1115 100%);
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--accent-yellow); }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
+
+        /* Seção Técnica (Inspirada na LTI) */
+        .troubleshoot { padding: 60px 5%; background: var(--secondary-bg); }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .grid-tech {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .tech-card {
+            background: var(--primary-bg); padding: 25px; border-radius: 12px;
+            border-left: 4px solid var(--accent-yellow);
+        }
+        .tech-card h3 { color: var(--accent-yellow); margin-top: 0; }
+        .tech-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Planos */
+        .plans { padding: 80px 5%; text-align: center; }
+        .plan-grid {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px;
+        }
+        .plan-box {
+            background: var(--secondary-bg); padding: 40px; border-radius: 20px;
+            width: 300px; transition: 0.3s; border: 1px solid #333;
+        }
+        .plan-box:hover { border-color: var(--accent-yellow); transform: translateY(-50px); }
+        .price { font-size: 3rem; font-weight: bold; margin: 20px 0; }
+        .btn-cta {
+            display: block; background: var(--accent-yellow); color: #000;
+            padding: 15px; border-radius: 8px; text-decoration: none; font-weight: bold;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
-        .hero span { color: var(--accent-yellow); }
+        /* FAQ */
+        .faq { padding: 60px 5%; max-width: 800px; margin: 0 auto; }
+        .faq-item { margin-bottom: 20px; background: #1e2229; padding: 20px; border-radius: 8px; }
+        .faq-item h4 { margin: 0 0 10px; color: var(--accent-yellow); }
 
-        .plans-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 50px 5%;
+        /* WhatsApp */
+        .wa-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--whatsapp-green); color: #fff;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 35px; text-decoration: none; box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            z-index: 2000; animation: pulse 2s infinite;
         }
-
-        .plan-card {
-            background-color: var(--secondary-bg);
-            border: 2px solid transparent;
-            border-radius: 15px;
-            padding: 30px;
-            width: 280px;
-            text-align: center;
-            transition: 0.3s;
-            position: relative;
-        }
-
-        .plan-card:hover { border-color: var(--accent-yellow); transform: translateY(-10px); }
-        .plan-card.popular { border-color: var(--accent-yellow); }
-
-        .badge {
-            background: var(--accent-yellow); color: #000;
-            position: absolute; top: -15px; left: 50%;
-            transform: translateX(-50%); padding: 5px 15px;
-            border-radius: 20px; font-size: 0.8rem; font-weight: bold;
-        }
-
-        .price { font-size: 2.5rem; font-weight: bold; margin: 20px 0; }
-        .price small { font-size: 1rem; color: var(--text-gray); }
-
-        .features { list-style: none; padding: 0; margin: 20px 0; text-align: left; }
-        .features li { margin-bottom: 12px; color: var(--text-gray); font-size: 0.95rem; }
-        .features i { color: var(--accent-yellow); margin-right: 10px; }
-
-        .btn-buy {
-            display: block; background-color: transparent;
-            border: 2px solid var(--accent-yellow); color: var(--accent-yellow);
-            padding: 12px; border-radius: 5px; text-decoration: none;
-            font-weight: bold; transition: 0.3s;
-        }
-
-        .btn-buy:hover { background-color: var(--accent-yellow); color: #000; }
-
-        .whatsapp-float {
-            position: fixed; width: 60px; height: 60px;
-            bottom: 40px; right: 40px; background-color: var(--whatsapp-green);
-            color: #FFF; border-radius: 50px; text-align: center;
-            font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            z-index: 1000; display: flex; align-items: center;
-            justify-content: center; text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        footer { text-align: center; padding: 60px 40px; border-top: 1px solid #333; color: var(--text-gray); }
+        footer { text-align: center; padding: 40px; border-top: 1px solid #333; color: var(--text-muted); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -140,72 +98,83 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="logo.jpg" alt="Cine Outlet Logo" class="logo-img">
-            <span style="font-weight: bold; color: var(--accent-yellow);">CINE OUTLET TV</span>
+<header>
+    <div class="logo-box">
+        <img src="logo.jpg" alt="Logo" class="logo-img">
+        <span style="font-weight:bold; letter-spacing:1px;">CINE OUTLET TV</span>
+    </div>
+    <a href="https://wa.me/5569984370902" class="btn-cta" style="padding: 8px 15px;">Teste Grátis</a>
+</header>
+
+<section class="hero">
+    <h1>Canais Sem Travamentos</h1>
+    <p>Tecnologia Anti-Buffering e servidores de alta performance para você não perder nenhum lance.</p>
+    <a href="#planos" class="btn-cta" style="display:inline-block; width:200px;">Ver Planos</a>
+</section>
+
+<section class="troubleshoot">
+    <div class="section-title">
+        <h2>Diagnóstico e Performance</h2>
+        <p>Entenda por que a Cine Outlet TV é mais estável que a concorrência.</p>
+    </div>
+    <div class="grid-tech">
+        <div class="tech-card">
+            <h3><i class="fas fa-wifi"></i> Instabilidade no Wi-Fi</h3>
+            <p>O Jitter alto causa o "carregamento". Recomendamos sempre conexão via cabo para Smart TVs e TV Boxes.</p>
         </div>
-        <a href="https://wa.me/5569984370902?text=Olá! Gostaria de solicitar um teste grátis." class="btn-trial" target="_blank">Teste Grátis</a>
-    </header>
-
-    <section class="hero">
-        <h1>Sua TV, Do Seu Jeito! <br><span>Canais, Filmes e Séries</span></h1>
-        <p>Qualidade 4K Ultra HD sem travamentos. Peça seu teste agora.</p>
-        <br>
-        <a href="#planos" class="btn-trial" style="padding: 15px 40px;">Ver Planos</a>
-    </section>
-
-    <section id="planos">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-top: 50px;">Nossos Planos</h2>
-        <div class="plans-container">
-            
-            <div class="plan-card">
-                <h3>Plano Mensal</h3>
-                <div class="price">R$ 29,90<small>/mês</small></div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> +1.000 Canais</li>
-                    <li><i class="fas fa-check"></i> Filmes e Séries</li>
-                    <li><i class="fas fa-check"></i> Qualidade Full HD/4K</li>
-                    <li><i class="fas fa-check"></i> 1 Tela</li>
-                </ul>
-                <a href="https://wa.me/5569984370902?text=Olá! Quero o Plano Mensal." class="btn-buy" target="_blank">Assinar Agora</a>
-            </div>
-
-            <div class="plan-card popular">
-                <div class="badge">MAIS VENDIDO</div>
-                <h3>Plano Trimestral</h3>
-                <div class="price">R$ 79,90<small>/3 meses</small></div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Todos os Canais</li>
-                    <li><i class="fas fa-check"></i> Suporte VIP</li>
-                    <li><i class="fas fa-check"></i> Estabilidade Total</li>
-                    <li><i class="fas fa-check"></i> Brinde Exclusivo</li>
-                </ul>
-                <a href="https://wa.me/5569984370902?text=Olá! Quero o Plano Trimestral." class="btn-buy" style="background: var(--accent-yellow); color: #000;" target="_blank">Assinar Agora</a>
-            </div>
-
-            <div class="plan-card">
-                <h3>Plano Anual</h3>
-                <div class="price">R$ 249,90<small>/ano</small></div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Acesso por 365 dias</li>
-                    <li><i class="fas fa-check"></i> Melhor Preço</li>
-                    <li><i class="fas fa-check"></i> Apps Exclusivos</li>
-                    <li><i class="fas fa-check"></i> Suporte 24h</li>
-                </ul>
-                <a href="https://wa.me/5569984370902?text=Olá! Quero o Plano Anual." class="btn-buy" target="_blank">Assinar Agora</a>
-            </div>
-
+        <div class="tech-card">
+            <h3><i class="fas fa-shield-alt"></i> Traffic Shaping</h3>
+            <p>Alguns provedores limitam o sinal de vídeo. Nossa tecnologia utiliza tunelamento para contornar bloqueios de operadoras.</p>
         </div>
-    </section>
+        <div class="tech-card">
+            <h3><i class="fas fa-server"></i> DNS Inteligente</h3>
+            <p>Otimizamos as rotas de conexão. Recomendamos o uso dos DNS Cloudflare (1.1.1.1) para menor latência.</p>
+        </div>
+    </div>
+</section>
 
-    <a href="https://wa.me/5569984370902" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<section id="planos" class="plans">
+    <h2>Escolha seu Plano</h2>
+    <div class="plan-grid">
+        <div class="plan-box">
+            <h3>Mensal</h3>
+            <div class="price">R$ 29<small>,90</small></div>
+            <p>Acesso Completo<br>Suporte via Zap<br>1 Tela</p>
+            <a href="https://wa.me/5569984370902?text=Quero+o+Plano+Mensal" class="btn-cta">Assinar</a>
+        </div>
+        <div class="plan-box" style="border-color: var(--accent-yellow);">
+            <div style="background:var(--accent-yellow); color:#000; font-size:0.7rem; font-weight:bold; border-radius:10px; padding:2px 0; margin-bottom:10px;">MAIS VENDIDO</div>
+            <h3>Trimestral</h3>
+            <div class="price">R$ 79<small>,90</small></div>
+            <p><b>Bônus de Fidelidade</b><br>Prioridade no Servidor<br>1 Tela</p>
+            <a href="https://wa.me/5569984370902?text=Quero+o+Plano+Trimestral" class="btn-cta">Assinar</a>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Cine Outlet TV. Todos os direitos reservados.</p>
-    </footer>
+<section class="faq">
+    <h2 style="text-align:center">Perguntas Frequentes</h2>
+    <div class="faq-item">
+        <h4>Preciso de antena para usar?</h4>
+        <p>Não. Todo o sinal é transmitido via internet. Basta ter uma conexão estável acima de 10mbps.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Quais aplicativos vocês recomendam?</h4>
+        <p>Trabalhamos com os melhores: XCIPTV, Smart UP, IPTV Smarters e apps próprios para Android.</p>
+    </div>
+    <div class="faq-item">
+        <h4>O sinal trava em dias de jogos?</h4>
+        <p>Nossa infraestrutura possui balanceamento de carga, garantindo estabilidade mesmo em horários de pico.</p>
+    </div>
+</section>
+
+<a href="https://wa.me/5569984370902" class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+    <p>&copy; 2026 Cine Outlet TV - Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
