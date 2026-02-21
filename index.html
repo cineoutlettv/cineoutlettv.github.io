@@ -9,10 +9,7 @@
     <meta name="keywords" content="streaming 4k, iptv premium, cine outlet tv, canais 4k, 2 telas simultâneas, smart tv box">
     <meta name="author" content="Cine Outlet TV">
 
-    <meta property="og:title" content="Cine Outlet TV | Streaming de Alta Performance">
-    <meta property="og:description" content="A maior grade de conteúdos em 2 telas simultâneas. Qualidade 4K real.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seusite.com"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -73,15 +70,40 @@
         .cat-card i { font-size: 2rem; color: var(--primary); margin-bottom: 12px; }
         .cat-card h4 { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
 
+        /* SEÇÃO DE APPS ATUALIZADA */
         .apps-section { padding: 60px 10%; text-align: center; background: #0d0f14; border-top: 1px solid var(--glass-border); }
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 30px; }
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 30px; }
+        
         .app-card {
             background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
-            padding: 20px; border-radius: 20px; transition: 0.3s;
+            padding: 25px 15px; border-radius: 20px; transition: 0.3s;
             display: flex; flex-direction: column; align-items: center; gap: 10px;
+            position: relative;
         }
-        .app-card i { font-size: 1.5rem; color: var(--primary); }
-        .app-card span { font-weight: 800; font-size: 0.85rem; }
+
+        /* Destaque para os Melhores */
+        .app-card.best-choice {
+            border: 2px solid var(--primary);
+            background: rgba(248, 196, 0, 0.05);
+            box-shadow: 0 0 15px rgba(248, 196, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .badge-best {
+            position: absolute; top: -10px; background: var(--primary);
+            color: #000; font-size: 0.6rem; font-weight: 900;
+            padding: 4px 10px; border-radius: 10px; text-transform: uppercase;
+        }
+
+        .app-card i { font-size: 1.8rem; color: var(--primary); }
+        .app-card span { font-weight: 800; font-size: 0.85rem; margin-bottom: 5px; }
+        
+        .btn-download {
+            background: transparent; color: var(--primary); border: 1px solid var(--primary);
+            padding: 8px 12px; border-radius: 8px; font-size: 0.65rem; font-weight: 800;
+            text-decoration: none; transition: 0.3s; width: 100%;
+        }
+        .app-card:hover .btn-download { background: var(--primary); color: #000; }
 
         .pricing { padding: 60px 10%; text-align: center; }
         .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 40px; }
@@ -132,6 +154,7 @@
         @media (max-width: 768px) {
             .hero { padding-top: 110px; }
             .price-card { width: 100%; }
+            .app-card.best-choice { transform: none; margin-bottom: 10px; }
         }
     </style>
 </head>
@@ -171,11 +194,47 @@
 
     <section class="apps-section">
         <h2 style="font-size: 1.5rem;">Trabalhamos com APPs Premium do Mercado!</h2>
+        <p style="color: #666; font-size: 0.8rem; margin-top: 5px; margin-bottom: 20px;">Baixe agora e instale no seu dispositivo Android</p>
         <div class="apps-grid">
-            <div class="app-card"><i class="fas fa-play-circle"></i><span>IBO REVENDA</span></div>
-            <div class="app-card"><i class="fas fa-tv"></i><span>VU REVENDA</span></div>
-            <div class="app-card"><i class="fas fa-layer-group"></i><span>SMARTONE</span></div>
-            <div class="app-card"><i class="fas fa-rocket"></i><span>IBO PLAYER</span></div>
+            
+            <div class="app-card best-choice">
+                <span class="badge-best">Melhor Opção</span>
+                <i class="fas fa-play-circle"></i>
+                <span>IBO REVENDA</span>
+                <a href="https://drive.google.com/file/d/1c3gOlkhNQFkTgA5b3iSL-rdrVg-DW8Bs/view?usp=sharing" target="_blank" class="btn-download">BAIXAR APK</a>
+            </div>
+
+            <div class="app-card best-choice">
+                <span class="badge-best">Melhor Opção</span>
+                <i class="fas fa-tv"></i>
+                <span>VU REVENDA</span>
+                <a href="https://drive.google.com/file/d/1O6_YPkRBTyXwNqlW0YodEKJfGBl--AZk/view?usp=sharing" target="_blank" class="btn-download">BAIXAR APK</a>
+            </div>
+
+            <div class="app-card">
+                <i class="fas fa-star"></i>
+                <span>UNI REVENDA</span>
+                <a href="https://drive.google.com/file/d/1FumRjnENEV8OHVxt4_lz0wmLh_IHrOPu/view?usp=sharing" target="_blank" class="btn-download">BAIXAR APK</a>
+            </div>
+
+            <div class="app-card">
+                <i class="fas fa-rocket"></i>
+                <span>IBO PLAYER PRO</span>
+                <a href="https://drive.google.com/file/d/1u5Y6iXOJpLNmxEM5wS3CEoSJUYBvY9bU/view?usp=sharing" target="_blank" class="btn-download">BAIXAR APK</a>
+            </div>
+
+            <div class="app-card">
+                <i class="fas fa-layer-group"></i>
+                <span>SMARTONE TIZEN</span>
+                <a href="https://drive.google.com/file/d/1UdRuqcSJy9QIA2RAB1hdmwEZPUF0MqBj/view?usp=sharing" target="_blank" class="btn-download">BAIXAR APK</a>
+            </div>
+
+            <div class="app-card">
+                <i class="fas fa-layer-group"></i>
+                <span>SMARTONE ORSAY</span>
+                <a href="https://drive.google.com/file/d/1hM9Bl68YsyyEqDXXCiCu2PoFJ2PrTbL6/view?usp=sharing" target="_blank" class="btn-download">BAIXAR APK</a>
+            </div>
+
         </div>
     </section>
 
